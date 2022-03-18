@@ -18,7 +18,7 @@ class CSVReader:
 
     def __init__(self):
         self.sku_csv_path = CSV_DATA_PATH + '/sku_info_csv.csv'
-        self.trasaction_csv_path = CSV_DATA_PATH + '/transaction_csv.csv'
+        self.transaction_csv_path = CSV_DATA_PATH + '/transaction_csv.csv'
 
 
     def read_sku_csv(self):
@@ -33,7 +33,7 @@ class CSVReader:
         dateparse = lambda date: datetime.strptime(date, '%d/%m/%Y')
         
         transactions_df = pandas.read_csv(
-                            self.trasaction_csv_path,
+                            self.transaction_csv_path,
                             parse_dates=['transaction_datetime'],
                             date_parser=dateparse
                         )
