@@ -1,7 +1,7 @@
 import json
 from loguru import logger
-from csv_reader import CSVReader
 from datetime import datetime, timedelta
+from app.csv_reader import CSVReader
 
 
 csv_reader = CSVReader()
