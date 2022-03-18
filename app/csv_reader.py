@@ -13,7 +13,7 @@ CSV_DATA_PATH = os.path.join(BASE_DIR,"csv_data")
 
 class CSVReader:
     """
-        CSV Reader class to perform all operations realted to extrating data from CSV
+    CSV Reader class to perform all operations realted to extrating data from CSV
     """
 
     def __init__(self):
@@ -70,12 +70,3 @@ class CSVReader:
         sku_json = sku_json[0]
 
         return sku_json
-
-### Ideas
-# path from env
-# sku name from sku hash in transaction api
-# requirement.txt file
-# adding docker
-
-### Done
-# git repo
