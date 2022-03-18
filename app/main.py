@@ -11,7 +11,10 @@ from app.processor import (
 )
 
 
-app = FastAPI()
+app = FastAPI(
+        title='Data Streaming Docs',
+        description='Api docs for publisher/subscriber model'
+    )
 
 
 # default responses for documentation
