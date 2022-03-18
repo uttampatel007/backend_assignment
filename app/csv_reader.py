@@ -1,6 +1,14 @@
+import os
 import json
 import pandas
+from pathlib import Path
 from datetime import datetime
+
+
+# setting base directory of the project
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+CSV_DATA_PATH = os.path.join(BASE_DIR,"csv_data")
 
 
 class CSVReader:
@@ -9,8 +17,8 @@ class CSVReader:
     """
 
     def __init__(self):
-        self.sku_csv_path = '/home/uttam/Documents/projects/assignment_medpay/csv_data/sku_info_csv.csv'
-        self.trasaction_csv_path = '/home/uttam/Documents/projects/assignment_medpay/csv_data/transaction_csv.csv'
+        self.sku_csv_path = CSV_DATA_PATH + '/sku_info_csv.csv'
+        self.trasaction_csv_path = CSV_DATA_PATH + '/transaction_csv.csv'
 
 
     def read_sku_csv(self):
