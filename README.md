@@ -9,7 +9,8 @@ Below are all major frameworks library used
 * [pandas](https://pandas.pydata.org/)
 
 ### Project File Structure
-`
+```
+
 ├── app                      <- FastApi project folder<br />
 │   ├── csv_reader.py         <- python file to perform csv operations<br />
 │   ├── main.py               <- python file initializing FastApi app object<br />
@@ -23,4 +24,5 @@ Below are all major frameworks library used
 ├── Dockerfile               <- docker file to create project image<br />
 ├── README.md                <- git readme file<br />
 ├── requirements.txt         <- python requirement file<br />
-`
+
+```
