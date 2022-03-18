@@ -34,23 +34,23 @@ Below are all major frameworks library used
 ### Installing and Set Up
 ----
 #### Using Docker
-* Create docker image of the project
+* Create docker image of the project<br/>
 `
 $ docker build -t image_name .
 `
 
-* Run docker container detached mode and on port 8000
+* Run docker container detached mode and on port 8000<br/>
 `
 $ docker run -d -p 8000:8000 image_name
 `
 * Access apis on localhost:8000
 
 #### Locally Without Docker
-* Install all requirements in a virtual environment
+* Install all requirements in a virtual environment<br/>
 `
 $ pip install -r requirements.txt
 `
-* Run FastApi using uvicorn
+* Run FastApi using uvicorn<br/>
 `
 $ uvicorn app.main:app --reload
 `
