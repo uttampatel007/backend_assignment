@@ -32,7 +32,6 @@ Below are all major frameworks library used
 * Python : Python needs to be installed while running locally
 
 ### Installing and Set Up
-----
 #### Using Docker
 * Create docker image of the project<br/>
 `
@@ -54,6 +53,7 @@ $ pip install -r requirements.txt
 `
 $ uvicorn app.main:app --reload
 `
+* Access apis on localhost:8000
 
 ### API Documentation
 After running project find api documentation at:
