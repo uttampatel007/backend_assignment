@@ -54,7 +54,7 @@ class SummaryByCategory(BaseModel):
 def read_root():
     return {
         "API Docs url 1": "localhost:8000/docs",
-        "API Docs url 2": "localhost:8000/redocs"
+        "API Docs url 2": "localhost:8000/redoc"
         }
 
 
