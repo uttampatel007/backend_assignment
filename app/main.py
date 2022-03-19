@@ -65,7 +65,6 @@ def read_root():
     )
 def get_transaction(transaction_id:int):
     try:
-        a
         payload, code = process_single_transaction(transaction_id)
         if code != 200:
             return JSONResponse(status_code=code, content=payload)
