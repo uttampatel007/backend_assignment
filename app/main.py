@@ -1,5 +1,5 @@
 from loguru import logger
-from fastapi import FastAPI, Response
+from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Optional
 from fastapi.responses import JSONResponse
@@ -63,12 +63,18 @@ def read_root():
     response_model= Transaction,
     responses={**responses},
     )
-def get_transaction(transaction_id:int, response:Response):
-    payload, code = process_single_transaction(transaction_id)
-    if code != 200:
-        return JSONResponse(status_code=code, content=payload)
+def get_transaction(transaction_id:int):
+    try:
+        a
+        payload, code = process_single_transaction(transaction_id)
+        if code != 200:
+            return JSONResponse(status_code=code, content=payload)
+        return payload
 
-    return payload
+    except Exception as e:
+        logger.exception(e)
+        payload = {"description": "Internal error"}
+        return JSONResponse(status_code=500, content=payload)
 
 
 @app.get(
@@ -77,10 +83,16 @@ def get_transaction(transaction_id:int, response:Response):
     responses={**responses}
     )
 def get_transaction_summary_by_sku(last_n_days:int):
-    payload, code = process_transaction_summary_by_sku(last_n_days)
-    if code != 200:
-        return JSONResponse(status_code=code, content=payload)
-    return payload
+    try:
+        payload, code = process_transaction_summary_by_sku(last_n_days)
+        if code != 200:
+            return JSONResponse(status_code=code, content=payload)
+        return payload
+
+    except Exception as e:
+        logger.exception(e)
+        payload = {"description": "Internal error"}
+        return JSONResponse(status_code=500, content=payload)
 
 
 @app.get(
@@ -89,7 +101,13 @@ def get_transaction_summary_by_sku(last_n_days:int):
     responses={**responses}
     )
 def get_transaction_summary_by_category(last_n_days:int):
-    payload, code = process_transaction_summary_by_category(last_n_days)
-    if code != 200:
-        return JSONResponse(status_code=code, content=payload)
-    return payload
+    try:
+        payload, code = process_transaction_summary_by_category(last_n_days)
+        if code != 200:
+            return JSONResponse(status_code=code, content=payload)
+        return payload
+
+    except Exception as e:
+        logger.exception(e)
+        payload = {"description": "Internal error"}
+        return JSONResponse(status_code=500, content=payload)

@@ -38,7 +38,7 @@ Below are all major frameworks library used
 $ docker build -t image_name .
 `
 
-* Run docker container detached mode and on port 8000<br/>
+* Run docker container in detached mode and on port 8000<br/>
 `
 $ docker run -d -p 8000:8000 image_name
 `
