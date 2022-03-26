@@ -64,6 +64,7 @@ def read_root():
     responses={**responses},
     )
 def get_transaction(transaction_id:int):
+    """Api to get single tranaction"""
     try:
         payload, code = process_single_transaction(transaction_id)
         if code != 200:
@@ -82,6 +83,7 @@ def get_transaction(transaction_id:int):
     responses={**responses}
     )
 def get_transaction_summary_by_sku(last_n_days:int):
+    """Api to get sku transaction summary"""
     try:
         payload, code = process_transaction_summary_by_sku(last_n_days)
         if code != 200:
@@ -100,6 +102,7 @@ def get_transaction_summary_by_sku(last_n_days:int):
     responses={**responses}
     )
 def get_transaction_summary_by_category(last_n_days:int):
+    """Api to get sku category transacction summary"""
     try:
         payload, code = process_transaction_summary_by_category(last_n_days)
         if code != 200:

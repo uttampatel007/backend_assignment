@@ -15,17 +15,14 @@ class CSVReader:
     """
     CSV Reader class to perform all operations realted to extrating data from CSV
     """
-
     def __init__(self):
         self.sku_csv_path = CSV_DATA_PATH + '/sku_info_csv.csv'
         self.transaction_csv_path = CSV_DATA_PATH + '/transaction_csv.csv'
-
 
     def read_sku_csv(self):
         """Return static sku csv info dataframe"""
         sku_info_df = pandas.read_csv(self.sku_csv_path)
         return sku_info_df
-
 
     def read_transaction_csv(self):
         """Returns transaction csv dataframe"""
@@ -39,25 +36,31 @@ class CSVReader:
                         )
         return transactions_df
 
-
     def get_single_transaction(self,transaction_id):
         """Given the transaction id, returns transaction data in json"""
         transaction_json = {}
 
         transactions_df = self.read_transaction_csv()
-        single_trans_df = transactions_df.loc[transactions_df['transaction_id'] == transaction_id]
+        single_trans_df = transactions_df.loc[
+            transactions_df['transaction_id'] == transaction_id]
 
         if single_trans_df.empty:
             return transaction_json
 
-        transaction_json = json.loads(single_trans_df.to_json(orient='records'))
+        # orient parameter is passed to get desired json string format
+        # orient = records makes json in key value pair
+        transaction_json = json.loads(
+            single_trans_df.to_json(orient='records')
+        )
         transaction_json = transaction_json[0]
 
         return transaction_json
 
-    
     def get_single_sku(self,sku_id):
-        """Given the sku id of the transaction, returns the sku data in json"""
+        """
+        Given the sku id of the transaction,  
+        returns the sku data in json
+        """
         sku_json = {}
 
         sku_df = self.read_sku_csv()

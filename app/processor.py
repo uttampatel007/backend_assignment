@@ -171,6 +171,7 @@ def process_transaction_summary_by_category(last_n_days):
         cat_id_hash = get_sku_id_category_hash()
 
         # hash to store category id wise total amount
+        # e.g. {"C1":212.1,"C2":232.12}
         category_price_hash = {}
 
         for obj in n_day_trans_json:
